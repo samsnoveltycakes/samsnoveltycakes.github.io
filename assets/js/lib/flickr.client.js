@@ -2,7 +2,7 @@ define(['flickr.photo'], function (FlickrPhoto)
 {
 	var endpoint = 'https://api.flickr.com/services/rest';
 	var params = {
-		'api_key': 'b22a418385accc05b521e7c7659cf20d',
+		'api_key': 'a6cc33445474dfd8ed9a11bf2d1efab6',
 		'format': 'json',
 		'method': 'flickr.photos.search',
 		'nojsoncallback': 1,
