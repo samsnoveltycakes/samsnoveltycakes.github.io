@@ -1,0 +1,271 @@
+@import 'normalize';
+@import 'animate';
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+@font-face {
+    font-family: 'RemedyDouble';
+    src: url('/assets/fonts/remedy-double.woff') format('woff');
+}
+
+@mixin button($background, $shadow, $hover) {
+    background: $background;
+    border-radius: 5px;
+    box-shadow: 1px 1px 0 $shadow;
+    color: #fff;
+    font-weight: bold;
+    padding: 3px 8px;
+    text-decoration: none;
+    text-shadow: -1px -1px 0 $shadow;
+    cursor: pointer;
+    display: inline-block;
+
+    &:hover {
+        background: $hover;
+    }
+}
+
+
+
+html {
+    background: #f3ece2 url(/assets/images/background.jpg);
+}
+
+body {
+    font: 0.7em 'Open Sans',sans-serif;
+
+    > header {
+        text-align: center;
+
+        h1 {
+            margin: 0;
+            font: 3em 'RemedyDouble', sans-serif;
+            background: url(/assets/images/cupcake.png) no-repeat 0 40%;
+            background-size: 31px 49px;
+            padding: 20px 0 10px 40px;
+            color: #cc4d22;
+            text-shadow: -1px -1px 0 #7f3218;
+            display: inline-block;
+        }
+    }
+}
+
+#about {
+    padding: 0 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+
+    header {
+        h1 {
+            font-size: 1.3em;
+            text-shadow: -1px -1px 0 #fff;
+        }
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+        display: inline-block;
+    }
+
+    a {
+        @include button(#f26c4f, #7f3218, #f2826a);
+
+        i {
+            padding-right: 5px;
+            border-right: 1px solid #f69679;
+        }
+
+        &#tel {
+            background: #0072bc;
+            text-shadow: -1px -1px 0 #0054a6;
+            box-shadow: 1px 1px 0 #0054a6;
+
+            i {
+                border-right-color: #0054a6;
+            }
+
+            &:hover {
+                background: #448ccb;
+            }
+        }
+    }
+
+    dt {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    dd {
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    a[href="#more"] {
+        @include button(#767676, #000, #838383);
+    }
+}
+
+.hide {
+    display: none;
+}
+
+// http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/
+#photos {
+    overflow: hidden;
+    margin: 2px;
+    border-top: 5px solid #c7b299;
+
+    #filter {
+        background: #f3ece2;
+        text-align: center;
+        padding-bottom: 5px;
+    }
+}
+
+article {
+    float: left;
+    position: relative;
+    width: 20%;
+    padding-bottom: 20%;
+    cursor: pointer;
+
+    div {
+        position: absolute;
+        left: 2px;
+        right: 2px;
+        top: 2px;
+        bottom: 2px;
+        overflow: hidden;
+
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        header {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-bottom: -70px;
+            background: #000;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 2px;
+            text-align: center;
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+
+            > h1 {
+                font-size: 0.75em;
+            }
+        }
+    }
+}
+
+.paginator {
+    @include button(#767676, #000, #838383);
+    margin: 2px;
+}
+
+
+
+body.no-touch #photos div:hover header,
+body.touch #photos div.touchFocus header
+{
+    margin-bottom: 0;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+
+    a {
+        color: #333;
+        text-decoration: none;
+        font-weight: lighter;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+
+
+@media only screen and (max-width : 480px) {
+    /* Smartphone view: 1 tile */
+    article {
+        width: 100%;
+        padding-bottom: 100%;
+    }
+}
+@media only screen and (max-width : 650px) and (min-width : 481px) {
+    /* Tablet view: 2 tiles */
+    article {
+        width: 50%;
+        padding-bottom: 50%;
+    }
+}
+@media only screen and (max-width : 1050px) and (min-width : 651px) {
+    /* Small desktop / ipad view: 3 tiles */
+    article {
+        width: 33.3%;
+        padding-bottom: 33.3%;
+    }
+}
+@media only screen and (max-width : 1290px) and (min-width : 1051px) {
+    /* Medium desktop: 4 tiles */
+    article {
+        width: 25%;
+        padding-bottom: 25%;
+    }
+}
+
+@media only screen and (min-width: 751px) {
+    body {
+        font-size: 1em;
+
+        > header {
+            h1 {
+                background-size: auto;
+                font-size: 4em;
+                padding: 50px 0 30px 70px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1190px) {
+    // Split the screen into two columns
+    [role="main"] {
+        display: table-row;
+    }
+
+    #about {
+        display: table-cell;
+        vertical-align: top;
+        width: 40%;
+
+        a[href="#more"] {
+            display: none;
+        }
+    }
+
+    .hide {
+        // always show the about details
+        display: block;
+    }
+
+    #photos {
+        display: table-cell;
+        width: 60%;
+    }
+}

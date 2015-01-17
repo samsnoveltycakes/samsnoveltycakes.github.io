@@ -1,27 +1,88 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Sam's Novelty Cakes</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/assets/css/app.css" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="//cdn.rawgit.com/noelboss/featherlight/1.0.3/release/featherlight.min.css" rel="stylesheet">
+        <!--[if lt IE 9]>
+            <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
     </head>
-    <body>
+    <body class="no-touch">
         <header>
-
+            <h1 class="animated bounceIn">Sam's Novelty Cakes</h1>
         </header>
 
-        <section role="main">
+        <div role="main">
+            <section id="about">
 
-        </section>
+                <header>
+                    <h1>Bespoke cake maker based in Kidderminster, Worcestershire.</h1>
+                </header>
+
+                <div id="more">
+                    <p>Hi I'm Sam Watson.</p>
+
+                    <p>I love making cakes so I decided to set myself up in business to share my works of
+                    art with others!!</p>
+
+                    <p>I have 6 years experience and have made many cakes, most of which are pictured
+                    here, if you see something you would like to order please contact me.</p>
+
+                    <p>Alternatively if you have an idea of your own that you would like me to create
+                    then I would love to hear from you, anything goes... just ask</p>
+
+                    <p>It's best to try and book at least a few weeks in advance to avoid disappointment
+                    but if I am able to accommodate at short notice then I will.</p>
+
+                    <p><strong>Free</strong> delivery within a 5 mile radius</p>
+
+                    <dl>
+                        <dt>Flavours include:</dt>
+                        <dd>Plain , Chocolate, Lemon, Coffee, Fruit , coloured sponge also available</dd>
+                        <dt>Fillings include:</dt>
+                        <dd>Raspberry Jam, Strawberry Jam, Lemon curd, buttercream, chocolate buttercream, chocolate ganache buttercream, marshmallow fluff</dd>
+                    </dl>
+
+                    <p><small>A small non refundable deposit is required to secure orders.</small></p>
+                </div>
+
+                <ul>
+                    <li><a href="mailto:samsnoveltycakes@gmail.com"><i class="fa fa-envelope-o"></i> samsnoveltycakes@gmail.com</a></li>
+                    <li><a id="tel" href="tel:+44-7876-314316"><i class="fa fa-phone"></i> 07876 314316</a></li>
+                </ul>
+            </section>
+
+            <section id="photos">
+                <div id="filter">
+                    <select id="tags"></select>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>
+                Copyright &copy; 2015 Sam Watson.
+                <a href="http://www.freepik.com/free-photos-vectors/vintage">Vintage vector designed by Freepik</a>
+            </p>
+        </footer>
 
         <script data-main="/assets/js/app" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>
 
+        <script id="tpl-more" type="x-tmpl-mustache">
+            <a href="{{ href }}">{{ title }}</a>
+        </script>
+
         <script id="tpl-cake" type="x-tmpl-mustache">
-            <article>
-                <header><h1>{{ title }}</h1></header>
-                <img src="{{ image }}" alt="{{ title }}">
+            <article data-featherlight="{{ fullsize }}">
+                <div style="background-image: url({{ image }})">
+                    <header><h1>{{ title }}</h1></header>
+                </div>
             </article>
         </script>
     </body>
